@@ -10,14 +10,14 @@ function Card() {
     });
 
     const handleChange = (e) => {
-        setAddproducts({ ...addproduct, [e.target.name]: e.target.value });  
+        setAddproducts({ ...addproduct, [e.target.name]: e.target.value });
     };
 
     const handleSubmit = async (e) => {
-        e.preventDefault();  
+        e.preventDefault();
         try {
             await axios.post("http://localhost:4000/products/add", addproduct);
-            setAddproducts({ title: "", price: "", description: "", image: "" });  
+            setAddproducts({ title: "", price: "", description: "", image: "" });
             alert("Product added successfully!");
         } catch (error) {
             console.log(error);
@@ -32,7 +32,7 @@ function Card() {
                 <input
                     type="text"
                     name="title"
-                    value={addproduct.title}  
+                    value={addproduct.title}
                     placeholder="Enter product name"
                     onChange={handleChange}
                     className="block w-full p-2 border rounded"
